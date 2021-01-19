@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Confirma exclusão {% endblock %}
+{% block main %}
+
+    <div>
+        <h1>Confirma exclusão de {{ person.first_name }}?</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-danger p-1 m-1">Delete</button>
+    </form>
+        <button  onclick="goBack()" class="btn btn-primary p-1 m-1" >Voltar</button>
+        <script>
+            function goBack() {
+              window.history.back();
+            }
+        </script>
+    </div>
+{% endblock %}
